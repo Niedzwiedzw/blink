@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+cargo build -Z build-std=core --target avr-atmega328p.json --release && avr-objcopy -O ihex ./target/avr-atmega328p/release/blink.elf ./target/avr-atmega328p/release/blink.hex && /home/niedzwiedz/Downloads/arduino-1.8.13/hardware/tools/avr/bin/avrdude -C/home/niedzwiedz/Downloads/arduino-1.8.13/hardware/tools/avr/etc/avrdude.conf -v -patmega328p -carduino -P/dev/ttyACM0 -b115200 -D -Uflash:w:./target/avr-atmega328p/release/blink.hex:i
